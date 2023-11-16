@@ -15,4 +15,5 @@ export enum TourID {
   CredentialsTour,
   CredentialOfferTour,
   ProofRequestTour,
+  RewardTour,
 }

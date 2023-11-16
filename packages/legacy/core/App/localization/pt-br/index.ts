@@ -455,7 +455,7 @@ const translation = {
     "Developer": "Opções de Desenvolvedor"
   },
   "TabStack": {
-    "Home": "Notificações",
+    "Home": "Home",
     "Scan": "Scanear",
     "Credentials": "Credenciais",
   },

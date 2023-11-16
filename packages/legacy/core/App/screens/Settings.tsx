@@ -158,6 +158,13 @@ const Settings: React.FC<SettingsProps> = ({ navigation }) => {
           testID: testIdWithKey('Language'),
           onPress: () => navigation.navigate(Screens.Language),
         },
+        {
+          title: t('Settings.Theme'),
+          value: undefined,
+          accessibilityLabel: t('Settings.Theme'),
+          testID: testIdWithKey('Theme'),
+          onPress: () => navigation.navigate(Screens.Theme),
+        },
       ],
     },
     ...(settings || []),

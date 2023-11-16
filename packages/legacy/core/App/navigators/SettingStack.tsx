@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { DeviceEventEmitter } from 'react-native'
 
+import SearchBar from '../components/inputs/SearchBar'
 import { EventTypes } from '../constants'
 import { useConfiguration } from '../contexts/configuration'
 import { useTheme } from '../contexts/theme'
@@ -13,6 +14,7 @@ import Onboarding from '../screens/Onboarding'
 import { createCarouselStyle } from '../screens/OnboardingPages'
 import PINCreate from '../screens/PINCreate'
 import Settings from '../screens/Settings'
+import Theme from '../screens/Theme'
 import Tours from '../screens/Tours'
 import UseBiometry from '../screens/UseBiometry'
 import { Screens, SettingStackParams } from '../types/navigators'
@@ -29,6 +31,11 @@ const SettingStack: React.FC = () => {
   const defaultStackOptions = createDefaultStackOptions(theme)
   const OnboardingTheme = theme.OnboardingTheme
   const carousel = createCarouselStyle(OnboardingTheme)
+  const [search, setSearch] = useState('')
+
+  const updateSearch = (search) => {
+    setSearch(search)
+  }
 
   useEffect(() => {
     const handleBiometry = DeviceEventEmitter.addListener(EventTypes.BIOMETRY_UPDATE, (value: boolean) => {
@@ -45,12 +52,31 @@ const SettingStack: React.FC = () => {
       <Stack.Screen
         name={Screens.Settings}
         component={Settings}
-        options={{ title: t('Screens.Settings'), headerBackTestID: testIdWithKey('Back') }}
+        options={{
+          title: t('Screens.Settings'),
+          headerBackTestID: testIdWithKey('Back'),
+          headerTitle: () => (
+            <SearchBar
+              clicked={false}
+              setSearchPhrase={function (arg0: string): void {
+                throw new Error(`Function not implemented. ${arg0}`)
+              }}
+              setClicked={function (arg0: boolean): void {
+                throw new Error(`Function not implemented. ${arg0}`)
+              }}
+            />
+          ),
+        }}
       />
       <Stack.Screen
         name={Screens.NameWallet}
         component={NameWallet}
         options={{ title: t('Screens.NameWallet'), headerBackTestID: testIdWithKey('Back') }}
+      />
+      <Stack.Screen
+        name={Screens.Theme}
+        component={Theme}
+        options={{ title: t('Screens.Theme'), headerBackTestID: testIdWithKey('Back') }}
       />
       <Stack.Screen
         name={Screens.Language}

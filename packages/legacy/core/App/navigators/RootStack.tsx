@@ -23,6 +23,7 @@ import Onboarding from '../screens/Onboarding'
 import { createCarouselStyle } from '../screens/OnboardingPages'
 import PINCreate from '../screens/PINCreate'
 import PINEnter from '../screens/PINEnter'
+import Reward from '../screens/Reward'
 import { BifoldError } from '../types/error'
 import { AuthenticateStackParams, Screens, Stacks, TabStacks } from '../types/navigators'
 import { connectFromInvitation, getOobDeepLink } from '../utils/helpers'
@@ -256,6 +257,25 @@ const RootStack: React.FC = () => {
                 testID={testIdWithKey('BackButton')}
                 onPress={() => {
                   navigation.navigate(TabStacks.HomeStack, { screen: Screens.Home })
+                }}
+                icon="arrow-left"
+              />
+            ),
+          })}
+        />
+        <Stack.Screen
+          name={Screens.Reward}
+          component={Reward}
+          options={({ navigation }) => ({
+            headerShown: true,
+            title: t('Screens.Reward'),
+            headerLeft: () => (
+              <HeaderButton
+                buttonLocation={ButtonLocation.Left}
+                accessibilityLabel={t('Global.Back')}
+                testID={testIdWithKey('BackButton')}
+                onPress={() => {
+                  navigation.navigate(TabStacks.RewardStack, { screen: Screens.Reward })
                 }}
                 icon="arrow-left"
               />

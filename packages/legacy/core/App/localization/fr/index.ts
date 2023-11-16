@@ -471,7 +471,7 @@ const translation = {
         "Developer": "Options de développeur"
     },
     "TabStack": {
-        "Home": "Notifications (FR)",
+        "Home": "Accueil (FR)",
         "Scan": "Numériser",
         "Credentials": "Justificatifs"
     },

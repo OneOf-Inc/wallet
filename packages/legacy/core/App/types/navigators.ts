@@ -37,6 +37,9 @@ export enum Screens {
   ProofDetails = 'Proof Details',
   NameWallet = 'Name Wallet',
   RenameContact = 'Rename Contact',
+  Reward = 'Reward',
+  Pay = 'Pay',
+  Theme = 'Theme',
 }
 
 export enum Stacks {
@@ -49,12 +52,16 @@ export enum Stacks {
   ProofRequestsStack = 'Proof Requests Stack',
   NotificationStack = 'Notifications Stack',
   ConnectionStack = 'Connection Stack',
+  RewardStack = 'Reward Stack',
+  PayStack = 'Pay Stack',
 }
 
 export enum TabStacks {
   HomeStack = 'Tab Home Stack',
   ConnectStack = 'Tab Connect Stack',
   CredentialStack = 'Tab Credential Stack',
+  RewardStack = 'Tab Reward Stack',
+  PayStack = 'Tab Pay Stack',
 }
 
 export type RootStackParams = {
@@ -72,6 +79,8 @@ export type TabStackParams = {
   [TabStacks.HomeStack]: NavigatorScreenParams<HomeStackParams>
   [TabStacks.ConnectStack]: NavigatorScreenParams<ConnectStackParams>
   [TabStacks.CredentialStack]: NavigatorScreenParams<CredentialStackParams>
+  [TabStacks.RewardStack]: NavigatorScreenParams<RewardStackParams>
+  [TabStacks.PayStack]: NavigatorScreenParams<PayStackParams>
 }
 
 export type AuthenticateStackParams = {
@@ -129,11 +138,18 @@ export type ConnectStackParams = {
   [Screens.Scan]: undefined
   [Screens.NameWallet]: undefined
 }
+export type RewardStackParams = {
+  [Screens.Reward]: undefined
+}
+export type PayStackParams = {
+  [Screens.Pay]: undefined
+}
 
 export type SettingStackParams = {
   [Screens.NameWallet]: undefined
   [Screens.Settings]: undefined
   [Screens.Language]: undefined
+  [Screens.Theme]: undefined
   [Screens.DataRetention]: undefined
   [Screens.Tours]: undefined
   [Screens.UseBiometry]: undefined

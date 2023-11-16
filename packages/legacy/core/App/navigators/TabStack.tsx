@@ -16,6 +16,8 @@ import { testIdWithKey } from '../utils/testable'
 
 import CredentialStack from './CredentialStack'
 import HomeStack from './HomeStack'
+import PayStack from './PayStack'
+import RewardStack from './RewardStack'
 
 const TabStack: React.FC = () => {
   const { width, height } = useWindowDimensions()
@@ -90,8 +92,8 @@ const TabStack: React.FC = () => {
             },
           }}
         />
-        <Tab.Screen
-          name={TabStacks.ConnectStack}
+        {/* <Tab.Screen
+          name={TabStacks.RewardStack}
           options={{
             tabBarIconStyle: styles.tabBarIcon,
             tabBarIcon: ({ focused }) => (
@@ -124,12 +126,12 @@ const TabStack: React.FC = () => {
                         <View
                           accessible={true}
                           accessibilityRole={'button'}
-                          accessibilityLabel={t('TabStack.Scan')}
+                          accessibilityLabel={t('TabStack.Reward')}
                           style={{ ...TabTheme.focusTabIconStyle }}
                         >
                           <Icon
                             accessible={false}
-                            name="qrcode-scan"
+                            name={focused ? 'bullseye-arrow' : 'bullseye'}
                             color={TabTheme.tabBarButtonIconStyle.color}
                             size={32}
                             style={{ paddingLeft: 0.5, paddingTop: 0.5 }}
@@ -138,11 +140,11 @@ const TabStack: React.FC = () => {
                         <Text
                           style={{
                             ...TabTheme.tabBarTextStyle,
-                            color: focused ? TabTheme.tabBarActiveTintColor : TabTheme.tabBarInactiveTintColor,
+                            // color: focused ? TabTheme.tabBarActiveTintColor : TabTheme.tabBarInactiveTintColor,
                             marginTop: 5,
                           }}
                         >
-                          {t('TabStack.Scan')}
+                          {t('TabStack.Reward')}
                         </Text>
                       </View>
                     </AttachTourStep>
@@ -151,8 +153,8 @@ const TabStack: React.FC = () => {
               </View>
             ),
             tabBarShowLabel: false,
-            tabBarAccessibilityLabel: t('TabStack.Scan'),
-            tabBarTestID: testIdWithKey(t('TabStack.Scan')),
+            tabBarAccessibilityLabel: t('TabStack.Reward'),
+            tabBarTestID: testIdWithKey(t('TabStack.Reward')),
           }}
           listeners={({ navigation }) => ({
             tabPress: (e) => {
@@ -160,8 +162,8 @@ const TabStack: React.FC = () => {
               if (!assertConnectedNetwork()) {
                 return
               }
-              navigation.navigate(Stacks.ConnectStack, {
-                screen: Screens.Scan,
+              navigation.navigate(Stacks.RewardStack, {
+                screen: Screens.Reward,
                 params: {
                   implicitInvitations: enableImplicitInvitations,
                   reuseConnections: enableReuseConnections,
@@ -170,8 +172,64 @@ const TabStack: React.FC = () => {
             },
           })}
         >
-          {() => <View />}
-        </Tab.Screen>
+          // {() => <View />} */}
+        {/* </Tab.Screen> */}
+        <Tab.Screen
+          name={TabStacks.RewardStack}
+          component={RewardStack}
+          options={{
+            tabBarIconStyle: styles.tabBarIcon,
+            tabBarIcon: ({ color, focused }) => (
+              <AttachTourStep tourID={TourID.RewardTour} index={2}>
+                <View style={{ ...TabTheme.tabBarContainerStyle, justifyContent: showLabels ? 'flex-end' : 'center' }}>
+                  <Icon name={focused ? 'bullseye-arrow' : 'bullseye'} color={color} size={30} />
+                  {showLabels && (
+                    <Text
+                      style={{
+                        ...TabTheme.tabBarTextStyle,
+                        color: focused ? TabTheme.tabBarActiveTintColor : TabTheme.tabBarInactiveTintColor,
+                        fontWeight: focused ? 'bold' : 'normal',
+                      }}
+                    >
+                      {t('TabStack.Reward')}
+                    </Text>
+                  )}
+                </View>
+              </AttachTourStep>
+            ),
+            tabBarShowLabel: false,
+            tabBarAccessibilityLabel: t('TabStack.Reward'),
+            tabBarTestID: testIdWithKey(t('TabStack.Reward')),
+          }}
+        />
+        <Tab.Screen
+          name={TabStacks.PayStack}
+          component={PayStack}
+          options={{
+            tabBarIconStyle: styles.tabBarIcon,
+            tabBarIcon: ({ color, focused }) => (
+              <AttachTourStep tourID={TourID.HomeTour} index={2}>
+                <View style={{ ...TabTheme.tabBarContainerStyle, justifyContent: showLabels ? 'flex-end' : 'center' }}>
+                  <Icon name='credit-card' color={color} size={30} />
+                  {showLabels && (
+                    <Text
+                      style={{
+                        ...TabTheme.tabBarTextStyle,
+                        color: focused ? TabTheme.tabBarActiveTintColor : TabTheme.tabBarInactiveTintColor,
+                        fontWeight: focused ? 'bold' : 'normal',
+                      }}
+                    >
+                      {t('TabStack.Pay')}
+                    </Text>
+                  )}
+                </View>
+              </AttachTourStep>
+            ),
+            tabBarShowLabel: false,
+            tabBarAccessibilityLabel: t('TabStack.Pay'),
+            tabBarTestID: testIdWithKey(t('TabStack.Pay')),
+          }}
+        />
         <Tab.Screen
           name={TabStacks.CredentialStack}
           component={CredentialStack}
@@ -189,15 +247,15 @@ const TabStack: React.FC = () => {
                         fontWeight: focused ? 'bold' : 'normal',
                       }}
                     >
-                      {t('TabStack.Credentials')}
+                      {t('TabStack.Identity')}
                     </Text>
                   )}
                 </View>
               </AttachTourStep>
             ),
             tabBarShowLabel: false,
-            tabBarAccessibilityLabel: t('TabStack.Credentials'),
-            tabBarTestID: testIdWithKey(t('TabStack.Credentials')),
+            tabBarAccessibilityLabel: t('TabStack.Identity'),
+            tabBarTestID: testIdWithKey(t('TabStack.Identity')),
           }}
         />
       </Tab.Navigator>

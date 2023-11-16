@@ -5,13 +5,14 @@ import { useTranslation } from 'react-i18next'
 import ScanButton from '../components/buttons/ScanButton'
 import SettingsMenu from '../components/buttons/SettingsMenu'
 import { useTheme } from '../contexts/theme'
-import Home from '../screens/Home'
-import { HomeStackParams, Screens } from '../types/navigators'
+import Reward from '../screens/Reward'
+import { RewardStackParams, Screens } from '../types/navigators'
 
 import { createDefaultStackOptions } from './defaultStackOptions'
 
-const HomeStack: React.FC = () => {
-  const Stack = createStackNavigator<HomeStackParams>()
+//TODO: Modify Pay Stack
+const RewardStack: React.FC = () => {
+  const Stack = createStackNavigator<RewardStackParams>()
   const theme = useTheme()
   const { t } = useTranslation()
   const defaultStackOptions = createDefaultStackOptions(theme)
@@ -19,10 +20,10 @@ const HomeStack: React.FC = () => {
   return (
     <Stack.Navigator screenOptions={{ ...defaultStackOptions }}>
       <Stack.Screen
-        name={Screens.Home}
-        component={Home}
+        name={Screens.Reward}
+        component={Reward}
         options={() => ({
-          title: t('Screens.Home'),
+          title: t('Screens.Reward'),
           headerRight: () => <ScanButton />,
           headerLeft: () => <SettingsMenu />,
         })}
@@ -31,4 +32,4 @@ const HomeStack: React.FC = () => {
   )
 }
 
-export default HomeStack
+export default RewardStack

@@ -24,6 +24,8 @@ const translation = {
     "Skip": "Skip",
     "View": "View",
     "Home": "Home",
+    "Reward": "Reward",
+    "Pay":"Pay",
     "ErrorCode": "Error Code",
     "Okay": "Okay",
     "GoBack": "Go Back",
@@ -289,6 +291,16 @@ const translation = {
     "RemoveContacts": "You can always remove Contacts at any time from your",
     "ContactsLink": "Contacts list",
   },
+  "Theme": {
+    "Title": "Change Color Mode",
+    "Preamble": "choose your prefered screen colors",
+    "ListItemDirectMessage": "Direct message your Contacts",
+    "ListItemNewCredentials": "Get offered new credentials",
+    "ListItemNotifiedOfUpdates": "Get notified of updates to your credentials issued by them",
+    "ListItemRequest": "Request for information from your Contact or they request information from you",
+    "RemoveContacts": "You can always remove Contacts at any time from your",
+    "ContactsLink": "Contacts list",
+  },
   "Credentials": {
     "CredentialsNotFound": "Credentials not found",
     "CredentialDetails": "Credential Details",
@@ -337,6 +349,14 @@ const translation = {
     "SentMessage": "sent a message",
     "ReceivedMessage": "You received a new message",
     "ViewMessage": "View message",
+  },
+  "Reward": {
+    "Latest":"Latest",
+    "Points":"Your superlogic points can be used to unlock exclusive rewards! 🏆"
+  },
+  "Pay": {
+    "Balance": "Balance",
+    "AddCreditCard":"Link your credit card or bank account to your wallet to make purchases 💳",
   },
   "Scan": {
     "SuccessfullyAcceptedConnection": "Successfully Accepted Connection",
@@ -481,12 +501,14 @@ const translation = {
     "ScanMyQR": "Scan my QR code",
     "Help": "Help",
     "MoreInformation": "More information",
-    "Developer": "Developer options"
+    "Developer": "Developer options",
+    "Theme":"Theme",
   },
   "TabStack": {
-    "Home": "Notifications",
-    "Scan": "Scan",
-    "Credentials": "Credentials",
+    "Home": "Home",
+    "Reward": "Reward",
+    "Pay":" Pay",
+    "Identity": "Identity",
   },
   "RootStack": {
     "Contacts": "Contacts",
@@ -516,7 +538,7 @@ const translation = {
     "Terms": "Terms & Conditions",
     "CreatePIN": "Create a PIN",
     "EnterPIN": "Enter PIN",
-    "Home": "Notifications",
+    "Home": "Home",
     "Scan": "Scan",
     "Credentials": "Credentials",
     "CredentialDetails": "Credential Details",
@@ -551,6 +573,9 @@ const translation = {
     "ProofRequesting": 'Proof Requesting',
     "NameWallet": "Name your wallet",
     "RenameContact": "Edit Contact Name",
+    "Reward":"Reward",
+    "Pay":"Pay",
+    "Theme":"Theme",
   },
   "Loading": {
     "TakingTooLong": "This is taking longer than usual. You can return to home or continue waiting.",
